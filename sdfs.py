@@ -9,10 +9,11 @@ import networkx as nx
 import copy as cpy
 
 class Graph:
-    def __init__(self, supp):
+    def __init__(self, supp, data):
         self.supp = supp
         self.G = nx.DiGraph()
         self.statistics ={}
+        self.diagraph(data)
 
 
     def diagraph(self, data):
@@ -145,8 +146,8 @@ if __name__ == '__main__':
              '8': {'gender':'M', 'age_group':'20-30', 'sequence':['B', 'D', 'C']},
              '9': {'gender':'M', 'age_group':'20-30', 'sequence':['B', 'D', 'C']},
              '10': {'gender':'F', 'age_group':'20-30', 'sequence': ['A', 'F','G']}}
-    graph = Graph(0.01)
+    #INPU: relative minsupport for each gender and each group
+    graph = Graph(0.01, data)
     
-    graph.diagraph(data)
     print(graph.dfs('B', '30-40', 'M'))
     
